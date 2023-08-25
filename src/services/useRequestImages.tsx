@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { GalleryImage } from "./../types/entities.types";
-import { v4 as uuid } from "uuid";
 import { useAppDispatch } from "../store/hooks";
 import { addImages } from "../store/slices/appSlice";
 
