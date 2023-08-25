@@ -1,0 +1,105 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.dropdown {
+  width: 28rem;
+
+  &-menu {
+    position: absolute;
+    min-width: 28rem;
+
+    border-radius: 30px;
+    border: 1px solid $app-blue-light;
+    background: $app-white;
+    overflow: hidden;
+    z-index: 9000;
+
+    @media screen and (max-width: $bp-medium) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__item {
+    padding: 1.6rem 2rem;
+    &:not(:last-child) {
+      padding-bottom: 1.2rem;
+    }
+    color: $app-black;
+    font-family: $font-default;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.18px;
+    transition: all 0.3s ease-in;
+    &_active {
+      color: $app-blue;
+    }
+
+    &:hover {
+      background-color: $app-pink-light;
+      cursor: pointer;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  outline: none;
+  border: unset;
+
+  &_full {
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid $app-blue-light;
+    background: $app-white;
+    padding: 4px 4px 4px 20px;
+
+    &:focus-visible {
+      border-color: $app-black;
+    }
+    @media screen and (max-width: $bp-medium) {
+      display: none;
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+    color: $app-black;
+    font-family: $font-default;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.18px;
+    text-align: start;
+  }
+
+  & .svg-box {
+    @include svg-box;
+    width: auto;
+    & > div {
+      justify-content: flex-end;
+    }
+  }
+
+  &_reduced {
+    display: none;
+    outline: none;
+    border: unset;
+    background-color: transparent;
+
+    &-img {
+      display: block;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      display: block;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

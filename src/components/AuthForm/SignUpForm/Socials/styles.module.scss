@@ -1,0 +1,55 @@
+@import "../../../../styles/variables.scss";
+
+.socials-box {
+  width: 100%;
+
+  & .socials-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    &__item {
+      transition: transform 0.3s ease-in;
+
+      & .social-box {
+        height: 4.8rem;
+        width: 4.8rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: 1.6rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+
+    @media screen and (max-width: $bp-large) {
+      margin-bottom: 3.3rem;
+    }
+  }
+
+  & .socials-text-box {
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    & .vector {
+      position: absolute;
+      top: 50%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+    }
+
+    & .text {
+      color: $app-grey;
+      font-family: $font-accent;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.16px;
+    }
+  }
+}

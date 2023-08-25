@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.footer {
+  border-top: 1px solid $app-blue-light;
+  background-color: $app-blue-light-xs;
+
+  &__inner {
+    @include container;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    margin-right: 3.2rem;
+  }
+
+  &__text {
+    font-family: $font-accent;
+    font-weight: 300;
+    font-size: 2.4rem;
+    color: $app-black;
+    letter-spacing: 0.24px;
+  }
+}

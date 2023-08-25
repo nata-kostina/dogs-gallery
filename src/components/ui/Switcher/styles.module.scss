@@ -1,0 +1,120 @@
+@import "../../../styles/variables.scss";
+
+$height: 40px;
+$width: 100%;
+
+.auth {
+  flex: 0 0 40%;
+  background-color: $app-white;
+}
+
+.switcher {
+  display: block;
+  position: relative;
+
+  width: $width;
+  height: $height;
+  border-radius: 25px;
+  margin-bottom: 1.6rem;
+  &__input {
+    appearance: none;
+
+    position: relative;
+
+    width: $width;
+    height: $height;
+    border-radius: 3.2rem;
+    border: 1px solid $app-blue-light;
+    padding: 0.4rem;
+    background-color: transparent;
+    outline: none;
+    line-height: 0.1;
+
+    &:before,
+    &:after {
+      display: block;
+      position: absolute;
+      width: 100%;
+
+      top: 50%;
+      transform: translateY(-50%);
+
+      font-family: $font-default;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $app-white;
+      text-align: center;
+
+      z-index: 2;
+    }
+    &:before {
+      content: "Log in";
+      transform: translateX(-25%);
+    }
+    &:after {
+      content: "Sign up";
+      transform: translateX(25%);
+    }
+
+    transition: all 0.3s ease-in;
+    &:checked {
+      background-color: $app-white;
+      &:before {
+        color: $app-white;
+        transition: color 0.5s 0.2s;
+      }
+      &:after {
+        color: $app-blue;
+        transition: color 0.5s;
+      }
+      & + label {
+        left: 4px;
+        right: calc($width * 0.5);
+
+        background: $app-blue;
+
+        transition: left 0.5s, right 0.4s 0.2s;
+      }
+    }
+
+    &:not(:checked) {
+      background: $app-white;
+      transition: all 0.5s -0.1s;
+      &:before {
+        color: $app-blue;
+        transition: color 0.5s;
+      }
+      &:after {
+        color: $app-white;
+        transition: color 0.5s 0.2s;
+      }
+      & + label {
+        left: calc($width * 0.5);
+        right: 4px;
+
+        background: $app-blue;
+
+        transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(231, 231, 231, 0.2);
+      cursor: pointer;
+    }
+  }
+  &__label {
+    z-index: 1;
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    height: calc(100% - 8px);
+
+    border-radius: 20px;
+  }
+
+  @media screen and (max-width: $bp-medium) {
+    margin-bottom: 3.2rem;
+  }
+}

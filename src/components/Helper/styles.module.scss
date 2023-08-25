@@ -1,0 +1,109 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.helper {
+  position: absolute;
+  top: 0%;
+  width: max-content;
+  max-width: 42rem;
+  right: 100%;
+
+  margin-right: 3.2rem;
+
+  background-color: $app-white;
+  border-radius: 2.4rem;
+
+  font-family: $font-accent;
+  color: $app-black;
+  transform: translateX(-15px);
+  animation: soarLeftRight 0.7s infinite ease-out alternate;
+  z-index: 1000;
+
+  @media screen and (max-width: $bp-large) {
+    left: 120%;
+    top: 0%;
+    animation: soarLeftRight 0.7s infinite ease-out alternate;
+  }
+
+  @media screen and (max-width: $bp-medium) {
+    left: 0%;
+    top: 150%;
+    width: 100%;
+    animation: soarTopBottom 0.7s infinite ease-out alternate;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 2.4rem;
+
+    @media screen and (max-width: $bp-medium) {
+      padding: 2.4rem 1.6rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0.24px;
+    margin-bottom: 0.8rem;
+
+    @media screen and (max-width: $bp-large) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 0.18px;
+    z-index: 2;
+    @media screen and (max-width: $bp-large) {
+      font-size: 1.6rem;
+    }
+  }
+
+  & .arrow {
+    width: 3.2rem;
+    height: 3.2rem;
+
+    position: absolute;
+    top: 50%;
+    right: 0%;
+
+    background-color: $app-white;
+    transform: rotate(45deg) translateY(-50%);
+    z-index: 1;
+
+    @media screen and (max-width: $bp-large) {
+      top: 50%;
+      left: -4%;
+      transform: rotate(45deg) translateY(-50%);
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      top: 0%;
+      left: 50%;
+      transform: rotate(45deg) translateX(-50%);
+    }
+  }
+}
+
+@keyframes soarLeftRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-15px);
+  }
+}
+@keyframes soarTopBottom {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-15px);
+  }
+}

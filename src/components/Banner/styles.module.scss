@@ -1,0 +1,285 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.section {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+
+  .banner {
+    position: relative;
+    height: 308px;
+    border-radius: 32px;
+    background: $app-green;
+    overflow: hidden;
+
+    @media screen and (max-width: $bp-large) {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    @media screen and (max-width: $bp-medium) {
+      display: none;
+    }
+
+    &__content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 27px 45px;
+      z-index: 2;
+
+      @media screen and (max-width: $bp-large) {
+        width: 40%;
+        max-width: 185px;
+        padding: 12px 25px;
+        justify-content: center;
+      }
+    }
+
+    &__animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      @media screen and (max-width: $bp-large) {
+        position: relative;
+        width: 60%;
+      }
+    }
+
+    &__text {
+      color: $app-white;
+      text-align: center;
+      font-family: $font-accent;
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.24px;
+
+      @media screen and (max-width: $bp-large) {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        text-align: left;
+      }
+    }
+
+    &__btn {
+      @include btn-primary;
+      padding: 9px 12px;
+      width: max-content;
+
+      &:hover,
+      &:focus-visible {
+        animation: bounce 1s linear;
+      }
+
+      @media screen and (max-width: $bp-large) {
+        padding: 8px 20px;
+        font-size: 1.8rem;
+      }
+    }
+
+    & .wind {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: circularMotion 7s linear infinite;
+      z-index: 1;
+    }
+
+    & .star-1 {
+      position: absolute;
+      top: 40%;
+      right: 0%;
+      transform: translate(-50%, -50%);
+      animation: soar 5s linear infinite;
+    }
+    & .star-2 {
+      position: absolute;
+      bottom: 0%;
+      right: 0%;
+    }
+    & .star-4 {
+      position: absolute;
+      top: 60%;
+      right: 30%;
+      animation: shine-1 3s linear infinite;
+    }
+    & .star-5 {
+      position: absolute;
+      top: 1%;
+      left: 3%;
+      animation: shine-2 4s linear infinite;
+    }
+    & .star-6 {
+      position: absolute;
+      top: 75%;
+      left: 4%;
+      animation: shine-3 3s linear infinite;
+    }
+    & .star-7 {
+      position: absolute;
+      top: 0%;
+      left: 54%;
+      animation: shine-4 4s linear infinite;
+    }
+    & .star-8 {
+      position: absolute;
+      top: 25%;
+      left: 7%;
+      animation: shine-5 7s linear infinite;
+    }
+    & .flower {
+      position: absolute;
+      left: 10%;
+      bottom: 0%;
+      z-index: 3;
+    }
+  }
+
+  @media screen and (max-width: $bp-large) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+}
+
+@keyframes circularMotion {
+  0% {
+    transform: translateX(calc(-50% + 10px)) translateY(-50%);
+  }
+  25% {
+    transform: translateX(-50%) translateY(calc(-50% + 10px));
+  }
+  50% {
+    transform: translateX(calc(-50% - 10px)) translateY(-50%);
+  }
+  75% {
+    transform: translateX(-50%) translateY(calc(-50% - 10px));
+  }
+  100% {
+    transform: translateX(calc(-50% + 10px)) translateY(-50%);
+  }
+}
+@keyframes soar {
+  0% {
+    transform: translateX(calc(-50% + 10px)) translateY(-50%);
+  }
+  50% {
+    transform: translateX(calc(-50% - 10px)) translateY(calc(-50% + 15px));
+  }
+  75% {
+    transform: translateX(-50%) translateY(calc(-50% - 10px));
+  }
+  100% {
+    transform: translateX(calc(-50% + 10px)) translateY(-50%);
+  }
+}
+@keyframes shine-1 {
+  0% {
+    rotate: 10deg;
+    transform: scale(1.2);
+  }
+  50% {
+    rotate: -10deg;
+    transform: scale(0.7);
+  }
+  75% {
+    rotate: 30deg;
+    transform: scale(1);
+  }
+  100% {
+    rotate: 10deg;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shine-2 {
+  0% {
+    rotate: 30deg;
+    transform: scale(0.4);
+  }
+  25% {
+    rotate: -10deg;
+    transform: scale(0.7);
+  }
+  75% {
+    rotate: 10deg;
+    transform: scale(1.2);
+  }
+  100% {
+    rotate: 30deg;
+    transform: scale(0.4);
+  }
+}
+@keyframes shine-3 {
+  0% {
+    transform: scale(1.4);
+  }
+  35% {
+    transform: scale(0.7);
+  }
+  55% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
+
+@keyframes shine-4 {
+  0% {
+    transform: translate(-10%, 3%);
+  }
+  35% {
+    transform: translate(3%, -5%);
+  }
+
+  100% {
+    transform: translate(-10%, 3%);
+  }
+}
+
+@keyframes shine-5 {
+  0% {
+    transform: scale(0.8);
+  }
+  35% {
+    transform: scale(1.1);
+  }
+  55% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}

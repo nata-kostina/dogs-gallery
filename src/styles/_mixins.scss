@@ -1,0 +1,91 @@
+@mixin container {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  width: 100%;
+  max-width: 144rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+@mixin card {
+  border-radius: 3.2rem;
+  background: $app-white;
+}
+
+@mixin overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(125, 149, 252, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+}
+
+@mixin svg-box {
+  height: 100%;
+  width: 100%;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@mixin btn {
+  display: block;
+  outline: none;
+  border: unset;
+  background-color: transparent;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin btn-primary {
+  @include btn;
+  padding: 1.2rem 3.2rem;
+  border-radius: 500px;
+  background: $app-black;
+
+  color: $app-white;
+  font-family: $font-default;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+@mixin btn-secondary {
+  @include btn;
+
+  display: flex;
+  padding: 0.8rem 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 500px;
+  background: rgba(125, 149, 252, 0.08);
+
+  color: $app-blue;
+
+  font-family: $font-default;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.18px;
+}
+@mixin btn-inverse {
+  @include btn;
+
+  padding: 8px 20px;
+  border-radius: 500px;
+  background: $app-white;
+  border: 1px solid $app-black;
+  color: $app-black;
+  font-family: $font-default;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}

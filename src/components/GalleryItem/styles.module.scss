@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.item {
+  position: relative;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  & .btn {
+    position: absolute;
+
+    width: 4rem;
+    height: 4rem;
+
+    outline: none;
+    border: unset;
+    border-radius: 100%;
+
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    & svg {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    &_favorite {
+      top: 8px;
+      right: 8px;
+
+      background: rgba(255, 255, 255, 0.24);
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-3px);
+      }
+    }
+
+    &_trash {
+      bottom: 8px;
+      left: 8px;
+      opacity: 0;
+
+      background: $app-white;
+
+      &:hover {
+        background: #f8eeee;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .btn_trash {
+      display: block;
+      opacity: 1;
+    }
+  }
+}

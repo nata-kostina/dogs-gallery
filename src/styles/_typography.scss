@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Navigo;
+  src: url(../assets/fonts/Navigo-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Navigo;
+  src: url(../assets/fonts/Navigo-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Navigo;
+  src: url(../assets/fonts/Navigo-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../assets/fonts/HelveticaNeueCyr-Roman.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url(../assets/fonts/HelveticaNeueCyr-Medium.ttf);
+  font-weight: 500;
+}
+
+body {
+  font-family: $font-default, sans-serif;
+  font-weight: 400;
+}
