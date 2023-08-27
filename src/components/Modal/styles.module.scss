@@ -4,6 +4,7 @@
 .overlay {
   @include overlay;
   overflow-y: hidden;
+  opacity: 0;
 }
 
 .modal {
@@ -12,6 +13,7 @@
   left: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  opacity: 0;
 
   @media screen and (max-width: $bp-medium) {
     top: 0;

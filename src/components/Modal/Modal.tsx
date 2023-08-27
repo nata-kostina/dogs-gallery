@@ -1,51 +1,68 @@
-import React, { useLayoutEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import st from "./styles.module.scss";
 import { gsap } from "gsap";
+import { GsapContext } from "../../contexts/GsapContext";
 
 interface Props {
-  isOpen: boolean;
   onClose: () => void;
   children?: React.ReactNode;
-  styles?: React.CSSProperties;
+  overlayStyles?: React.CSSProperties;
+  modalStyles?: React.CSSProperties;
 }
 
-const Modal = ({ isOpen, onClose, children, styles }: Props) => {
-  const modalRoot = document.getElementById("modal-root");
+const Modal = ({ onClose, children, overlayStyles, modalStyles }: Props) => {
+  const [active, setActive] = useState(false);
+  const [ctx] = useState(() => gsap.context(() => {}));
+
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(
-      overlayRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.2 }
-    );
-    gsap.fromTo(
-      contentRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.2 }
-    );
-  });
-  if (!isOpen) return null;
+    ctx.add(() => {
+      gsap.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.2 }
+      );
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.2 }
+      );
+    });
+
+    ctx.add("remove", () => {
+      gsap.to(contentRef.current, {
+        opacity: 0,
+        duration: 0.7,
+      });
+      gsap.to(overlayRef.current, {
+        opacity: 0,
+        duration: 0.7,
+        onComplete: () => {
+          setActive(false);
+          onClose();
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
-      {modalRoot
-        ? ReactDOM.createPortal(
-            <>
-              <div
-                ref={overlayRef}
-                className={st.overlay}
-                onClick={onClose}
-                style={{ ...styles }}
-              ></div>
-              <div className={st.modal} ref={contentRef}>
-                {children}
-              </div>
-            </>,
-            modalRoot
-          )
-        : null}
+      <div ref={modalRef} style={{ position: "absolute" }}>
+        <div
+          ref={overlayRef}
+          className={st.overlay}
+          onClick={() => ctx.remove()}
+          style={{ ...overlayStyles }}
+        ></div>
+        <div className={st.modal} ref={contentRef} style={{ ...modalStyles }}>
+          <GsapContext.Provider value={ctx}>{children}</GsapContext.Provider>
+        </div>
+      </div>
     </>
   );
 };

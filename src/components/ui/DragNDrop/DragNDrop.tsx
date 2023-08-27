@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import st from "./styles.module.scss";
 import { ReactSVG } from "react-svg";
 import CameraImg from "../../../assets/images/ui/camera.svg";
@@ -7,7 +7,7 @@ interface Props {
   handleDrop: (files: FileList) => void;
 }
 
-const DragNDrop = ({ handleDrop }: Props) => {
+const DragNDrop = forwardRef<HTMLDivElement, Props>(({ handleDrop }, ref) => {
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
@@ -23,7 +23,7 @@ const DragNDrop = ({ handleDrop }: Props) => {
   };
 
   return (
-    <div className={st["drag-and-drop-box"]}>
+    <div ref={ref} className={st["drag-and-drop-box"]}>
       <div
         className={st["drop-area"]}
         onDragOver={handleDragOver}
@@ -43,6 +43,6 @@ const DragNDrop = ({ handleDrop }: Props) => {
       </div>
     </div>
   );
-};
+});
 
 export default DragNDrop;

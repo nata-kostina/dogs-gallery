@@ -1,14 +1,13 @@
 # 🐕 Puppy Gallery
 
-This is a simple SPA that displays a gallery of dogs images. The user can add image to favorite, delete the image, drag and drop a new image to the gallery. 
+This is a simple SPA that displays a gallery of dogs images. The user can add image to favorite, delete the image, drag and drop a new image to the gallery.
 
-## Built With  
+## Built With
 
 - [Typescript](https://www.typescriptlang.org/) - a strongly typed programming language that builds on JavaScript.
 - [React](https://reactjs.org/) - a JavaScript library for building user interfaces.
 - [SASS](https://sass-lang.com/) - a CSS pre-processor.
-+ a little bit of GSAP
-
+- [GSAP](https://greensock.com/gsap/) - an animation library.
 
 ## Getting Started
 
@@ -20,7 +19,7 @@ $ git clone https://github.com/nata-kostina/dogs-gallery.git
 
 # Install dependencies
 $ npm install
-  
+
 # Run the app
 $ npm run start
 
@@ -30,8 +29,8 @@ $ npm run build
 
 The app will be run at [http://localhost:3000/](http://localhost:3000/)
 
-
 ## Contacts
+
 - Email: natakostina123@gmail.com
 - LinkedIn: [https://www.linkedin.com/in/nata-kostsina/](https://www.linkedin.com/in/nata-kostsina/)
 - Telegram: @kostinata

@@ -22,3 +22,7 @@ $font-accent: Navigo, sans-serif;
 $bp-large: 1439px;
 $bp-medium: 767px;
 $bp-small: 319px;
+
+:export {
+  bpMedium: $bp-medium;
+}
