@@ -36,7 +36,7 @@ const GalleryPage = () => {
     }
   }, []);
   useEffect(() => {
-    const isOpen = loading || gallery.length === 0 ? true : false;
+    const isOpen = gallery.length === 0 ? true : false;
     if (isOpen) {
       calculateModalPosition();
     }
