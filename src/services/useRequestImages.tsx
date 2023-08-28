@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAppDispatch } from "../store/hooks";
-import { addImages } from "../store/slices/appSlice";
+import { setImages } from "../store/slices/appSlice";
 
 const URL = "https://dog.ceo/api/breeds/image/random/10";
 
@@ -19,7 +19,7 @@ const useRequestImages = () => {
       try {
         const response = await axios.get<Response>(URL);
         if (response.data?.message?.length > 0) {
-          dispatch(addImages(response.data.message));
+          dispatch(setImages(response.data.message));
         }
         setLoading(false);
       } catch (error) {
